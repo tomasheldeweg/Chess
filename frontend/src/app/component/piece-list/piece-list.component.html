@@ -6,7 +6,9 @@
 <table>
   <tr *ngFor= "let row of board">
     <td *ngFor= "let element of row">
-      {{element}}
+      <button id="#BUTTON-IMAGE" style="border: 1; background: transparent">
+        {{element}}
+      </button>
     </td>
   </tr>
 </table>

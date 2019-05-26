@@ -22,6 +22,11 @@ public class GameController {
     @Autowired
     private PieceService pieceService;
 
+    @GetMapping
+    public Iterable<Game> listAll(){
+        return this.gameService.listAll();
+    }
+
     @PostMapping("/new-Game")
     public Game save(){
 

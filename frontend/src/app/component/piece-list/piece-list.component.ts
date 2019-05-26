@@ -9,8 +9,9 @@ import { Piece } from '../../model/piece';
 })
 export class PieceListComponent implements OnInit {
 
+  imgBasePath = "/src/assets/"
   pieces:Piece[];
-  board = Array(8).fill("e").map(() => Array(8).fill("e"));
+  board = Array(8).fill("white").map(() => Array(8).fill("e"));
   constructor(private pieceService:PieceService) { }
 
   ngOnInit() {
@@ -25,7 +26,9 @@ export class PieceListComponent implements OnInit {
   }
 
   fillBoard(){
+    var imgPath:string;
     for(let p of this.pieces){
+      imgPath
       this.board[p.yPos][p.xPos] = p.name
     }
   }

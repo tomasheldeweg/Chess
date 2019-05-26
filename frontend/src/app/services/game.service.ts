@@ -12,7 +12,8 @@ export class GameService {
   urlBase: "http://localhost:8080/api/games"
   
   createGame(){
-    this.http.post(this.urlBase + "/new-Game", null)
+    this.http.post("http://localhost:8080/api/games/new-Game", null).subscribe()
+    console.log("in create game")
   }
 
 
