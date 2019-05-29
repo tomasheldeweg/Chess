@@ -1,14 +1,43 @@
+<head>
+
+</head>
 <p>
   piece-list works!
 </p>
 
 
 <table>
-  <tr *ngFor= "let row of board">
-    <td *ngFor= "let element of row">
-      <button id="#BUTTON-IMAGE" style="border: 1; background: transparent">
-        {{element}}
-      </button>
+  <tr *ngFor= "let row of board; index as i">
+    <td *ngFor= "let element of row; index as j">
+      <div *ngIf="element != 'e' && (i+j)%2 == 0;" class="Tile" id="white"
+      (dragover) = "allowDrop($event)"
+      (drop) = "drop($event)">
+      
+        <img (draggable)="true" id = [{{i}},{{j}}]
+        (dragstart) ="drag($event)" 
+        (dragover) ="allowDrop($event)"
+        (dragend) ="dragEnd($event)"
+        src= {{element}}>
+      </div>
+
+      <div *ngIf="element != 'e' && (i+j)%2 == 1;" class="Tile" id="black"
+      (dragover) = "allowDrop($event)"
+      (drop) = "drop($event)">
+
+        <img (draggable)="true" id = [{{i}},{{j}}]
+        (dragstart) ="drag($event)" 
+        (dragover) ="allowDrop($event)"
+        (dragend) ="dragEnd($event)"
+        src= {{element}}>
+      </div>
+      
+      <div *ngIf="element == 'e' && (i+j)%2 == 0;" class="Tile" id="white"
+      (dragover) = "allowDrop($event)"
+      (drop) = "drop($event)"></div>
+
+      <div *ngIf="element == 'e' && (i+j)%2 == 1;" class="Tile" id="black"
+      (dragover) = "allowDrop($event)"
+      (drop) = "drop($event)"></div>
     </td>
   </tr>
 </table>

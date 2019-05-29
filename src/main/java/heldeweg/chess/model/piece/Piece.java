@@ -17,7 +17,7 @@ public class Piece {
     private int xPos;
     private int yPos;
 
-    private int team;
+    private String team;
 
     @ManyToOne
     private Game game;
@@ -25,7 +25,7 @@ public class Piece {
     public Piece() {
     }
 
-    public Piece(String name, int xPos, int yPos, int team) {
+    public Piece(String name, int xPos, int yPos, String team) {
         this.name = name;
         this.xPos = xPos;
         this.yPos = yPos;
@@ -40,11 +40,11 @@ public class Piece {
         return id;
     }
 
-    public int getTeam() {
+    public String getTeam() {
         return team;
     }
 
-    public void setTeam(int team) {
+    public void setTeam(String team) {
         this.team = team;
     }
 
